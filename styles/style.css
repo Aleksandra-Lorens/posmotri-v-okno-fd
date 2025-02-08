@@ -8,6 +8,38 @@ html {
   block-size: 100%;
 }
 
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+li,
+blockquote,
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* Кастомный скроллбар */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgb(217 217 217 / 10%);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #D9D9D9;
+}
+
 .page {
   display: flex;
   justify-content: center;
@@ -33,6 +65,7 @@ html {
 .search-form {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   gap: 40px;
 }
 
@@ -65,45 +98,178 @@ html {
   margin-bottom: 16px;
 }
 
+.content__list {
+  display: flex;
+  flex-direction: column; 
+  gap: 30px; 
+}
 
-
-
+.content__video-card {
+  display: flex;
+  align-items: flex-start;
+}
   
+.content__video-card-thumbnail {
+  width: 194px; /* Задайте нужную ширину */
+  height: 103px; /* Задайте нужную высоту */
+}
+
+.content__video-card-thumbnail img {
+  width: 100%; /* Растягивает изображение на всю ширину контейнера */
+  height: 100%; /* Растягивает изображение на всю высоту контейнера */
+  object-fit: cover; /* Заполняет весь контейнер, сохраняя пропорции */
+  object-position: center; /* Выравнивает изображение по центру */
+}
+
+.content__video-card-description-container {
+  flex-grow: 1; /* Занимает всё доступное пространство */
+}
+
+.search-form__fieldset {
+  border: 0;
+}
+
+.search-form__fieldset-title { /*заголовок город*/
+  font-family: Fira Sans Condensed;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21.6px;
+  letter-spacing: 0%;
+  color: #FFFFFF;
+  margin-bottom: 5px;
+}
+
+.search-form__textfield { /* город спб*/
+  font-family: Fira Sans Condensed;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21.6px;
+  letter-spacing: 0%;
+  color: #fff 0.7;
+  background: inherit;
+  width: 225px;
+  height: 27px;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  border-left: none;
+  border-right: none;
+}
+
+.search-form__submit-button { /*knopka*/
+  font-family: Fira Sans Condensed;
+  font-weight: 700;
+  font-size: 18px;
+  color: #fff;
+  line-height: 21.6px;
+  letter-spacing: 0%;
+  text-align: center;
+  width: 194;
+  height: 34;
+  top: 20px;
+  left: 517px;
+  gap: 10px;
+  border: 1px solid #fff;
+  background-color: inherit;
+  padding: 6px 73.5px;
   
+
+
+}
+
+.title { /* Заголовок посмотри в окно*/
+  font-family: Oswald;
+  font-weight: 700;
+  font-size: 75px;
+  line-height: 70.5px;
+  letter-spacing: 0%;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.content__accent { /* Заголовок посмотри в окно*/
+  color: #545050;
+}
+
+.content__card-link {
+  text-decoration: none; /* Убираем подчёркивание */
+  color: #fff;
+}
+
+.content__video-card-title {
+  font-family: Oswald;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 30px;
+  letter-spacing: 0%;
+  color: #fff;
+  white-space: nowrap; /* Запрещаем перенос текста на новую строку */
+  overflow: hidden; /* Скрываем текст, выходящий за пределы контейнера */
+  text-overflow: ellipsis; /* Заменяем излишний текст на "…" */
+  width: 100%; /* Убедитесь, что элемент имеет фиксированную ширину */
+  max-width: 100%; /* Ограничиваем максимальную ширину */
+} 
+
+.content__video-card-description {
+  font-family: Fira Sans Condensed;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 16.2px;
+  letter-spacing: 0%;
+  -webkit-line-clamp: 1; /* в задании очень странная штука*/
+  color: #fff;
+  padding-top: 6px;
+}
   
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+} 
+  
+
+/* Стили для строки с fieldset и кнопкой */
+.search-form__row {
+  display: flex; /* Включаем Flexbox */
+  align-items: center; /* Выравниваем элементы по вертикали */
+}
+
+/* Стили для fieldset */
+.search-form__fieldset {
+  border: none; /* Убираем границу */
+  margin: 0; /* Убираем отступы */
+  padding: 0; /* Убираем внутренние отступы */
+}
+
+/* Стили для списка чекбоксов */
+.search-form__checkbox-list {
+  display: flex; /* Включаем Flexbox */
+  gap: 10px; /* Расстояние между чекбоксами */
+}
+
+/* Стили для кнопки */
+.search-form__button {
+  padding: 10px 20px; /* Внутренние отступы */
+  background-color: #007bff; /* Цвет фона */
+  color: white; /* Цвет текста */
+  border: none; /* Убираем границу */
+  border-radius: 5px; /* Закругляем углы */
+  cursor: pointer; /* Курсор в виде указателя */
+  font-size: 16px; /* Размер текста */
+}
+
+/* Стили для чекбоксов и их текста */
+.search-form__checkbox-list label {
+  display: flex; /* Включаем Flexbox для выравнивания текста и чекбокса */
+  align-items: center; /* Выравниваем по вертикали */
+  gap: 5px; /* Расстояние между чекбоксом и текстом */
+}
   
 
 
 
 
-h1,
-h2,
-h3,
-h4,
-p,
-ul,
-ol,
-li,
-blockquote,
-fieldset {
-  margin: 0;
-  padding: 0;
-}
 
-ul,
-ol {
-  list-style: none;
-}
-
-/* Кастомный скроллбар */
-.custom-scrollbar::-webkit-scrollbar {
-  width: 4px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: rgb(217 217 217 / 10%);
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #D9D9D9;
-}
